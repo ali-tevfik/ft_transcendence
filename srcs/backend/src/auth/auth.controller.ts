@@ -21,6 +21,7 @@ export class AuthController {
 	@Get('logout')
 	@UseGuards(AuthenticatedGuard)
 	async logout(@Req() req, @Res() res) {
+		this.userService.updateLogIn(req.user.userName, false)
 		req.logout(() => {
 			// Oturum sonlandırıldıktan sonra yapılacak işlemler
 			res.redirect('http://localhost:3000/login'); // Örnek olarak, login sayfasına yönlendirme yapabilirsiniz
@@ -39,16 +40,17 @@ export class AuthController {
 			else
 				console.log("Login succes");
 		});
-
-		res.redirect(`http://localhost:3000/`);
+		this.userService.updateLogIn(user.userName,true);
+		res.redirect(`http://localhost:3000/home`);
 	}
 
 
 	@Get('status')
 	@UseGuards(AuthenticatedGuard)
 	status(@Req() req) {
-		if(!req.user)
+		if(!req.user){
 			window.location.href = '/login'
+		}
 		else
 			return req.user;
 	}

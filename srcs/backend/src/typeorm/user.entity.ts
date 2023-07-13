@@ -25,6 +25,10 @@ export class UserEntity {
 	@Column({ nullable: true })
 	status: string;
 
+
+	@Column({})
+	isLogged: boolean = false;
+
 	@OneToMany(() => MessageEntity, message => message.user)
 	messages: MessageEntity[];
 

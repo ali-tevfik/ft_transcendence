@@ -6,4 +6,5 @@ export interface UserI {
 	avatar?: string;
 	avatarSmall?: string
 	friends?: UserI[]
+	// twoFactorAuthenticationSecret: string;
 }

@@ -45,6 +45,7 @@ export class UserService {
 		user: newUser,
 		room: generalChatRoom,
 	});
+	newUser.isLogged = true
 	await this.dataSource.manager.save(newRoomUser);
 	console.log("newuser " + newUser)
 	console.log("create user " + createdUser)
@@ -52,6 +53,25 @@ export class UserService {
 
 	return createdUser;
 	}
+
+	// async setTwoFactorAuthenticationSecret(secret: string, userId: number) {
+	// 	(await this.userRepository.findOne(user => user.id === userId)).twoFactorAuthenticationSecret = secret;
+	//   }
+	
+
+	// async generateTwoFactorAuthenticationSecret(user: UserI) {
+	// 	const secret = authenticator.generateSecret();
+	
+	// 	const otpauthUrl = authenticator.keyuri(user.userName, 'AUTH_APP_NAME', secret);
+	
+	// 	await this.setTwoFactorAuthenticationSecret(secret, user.id);
+	
+	// 	return {
+	// 	  secret,
+	// 	  otpauthUrl
+	// 	}
+	//   }
+
 
 	async findByintraId(intraIdToFind: string): Promise<UserI> {
 		return await this.userRepository.findOne({
@@ -65,9 +85,11 @@ export class UserService {
 	}
 
 	async findByID(idToFind: number): Promise<UserI> {
-		return await this.userRepository.findOne({
+		const user =
+		 await this.userRepository.findOne({
 			where: { id: idToFind },
 		});
+		return user;
 	}
 
 	async findId(intrabyId: string): Promise<number>{
@@ -123,9 +145,23 @@ export class UserService {
 		const user = await this.userRepository.findOne({
 			where: { userName: userName }
 		});
+		console.log("hello status")
 		if(!user)
 			return
 		user.status = status;
+		console.log("status changed")
+		await this.userRepository.save(user);
+	}
+
+	async updateLogIn(userName: string, isLogged: boolean): Promise<void> {
+		const user = await this.userRepository.findOne({
+			where: { userName: userName }
+		});
+		console.log("hello isLogged")
+		if(!user)
+			return
+		user.isLogged = isLogged;
+		console.log("isLogged changed")
 		await this.userRepository.save(user);
 	}
 

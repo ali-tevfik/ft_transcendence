@@ -1,14 +1,17 @@
 import { createContext, useState, Dispatch, SetStateAction, ReactNode, useContext, useEffect } from "react";
 import { UserRole } from "../ChatContext";
 import axios from "axios";
+import { Navigate } from 'react-router-dom'
+import { Nav } from '../../components';
+import { Login } from "../../pages";
 
 export type User = {
   userName: string;
   avatar: string;
   intraId: string;
-  status?: string,
+  status: string,
   userRole?: string,
-
+  isLogged:boolean
 }
 
 export interface UserContextInterface {
@@ -23,14 +26,15 @@ const defaultState = {
     avatar: '',
     status: '',
     userRole: '',
-  },
-  setUser: (user: User) => {}
+    isLogged: false
+    },
+  setUser: (user: User) => { }
 } as UserContextInterface;
 
 export const UserContext = createContext(defaultState);
 
 export function useUser() {
-    return useContext(UserContext);
+  return useContext(UserContext);
 }
 
 
@@ -42,25 +46,29 @@ type UserProviderProps = {
 
 export function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<User>({
-    userName: 'unknown',
+    userName: '',
     avatar: '',
-    intraId: '', 
+    intraId: '',
     status: '',
     userRole: '',
+    isLogged: false
   });
 
 
 
   useEffect(() => {
+    console.log("user provider calisti 0");
     const fetchData = async () => {
+      console.log("user provider calisti 1");
+
       try {
-      const response = await axios.get('http://localhost:3001/auth/status', {withCredentials: true})
-      console.log("onceden " + user.userName);
-      setUser(response.data);
-      console.log("sonrasinda  "+ user.userName + " asdasd " + JSON.stringify(response.data) + "    bundan sonra" + window.location.pathname);
-      console.log(response.data.avatar + " asdasd")
+        const response = await axios.get('http://localhost:3001/auth/status', { withCredentials: true })
+        console.log("naber " + user.userName);
+        setUser(response.data);
+        console.log("sonrasinda  " + user.userName + " asdasd " + JSON.stringify(response.data) + "user login    bundan sonra" + window.location.pathname);
+        console.log(response.data.avatar + " asdasd")
       } catch (error) {
-        if(!window.location.pathname.match('/login'))
+        if (!window.location.pathname.match('/login'))
           window.location.href = '/login'
       }
     };
@@ -69,12 +77,18 @@ export function UserProvider({ children }: UserProviderProps) {
   }, []);
 
 
-
-
-
+if(user.isLogged){
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
-  );
+  );}
+  else{
+    return(
+      <>
+      <Nav/>
+      <Login/>
+      </>
+    )
+  }
 }
