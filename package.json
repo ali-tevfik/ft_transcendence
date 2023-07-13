@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@syncfusion/ej2-react-navigations": "^22.1.38",
+    "simple-oauth2": "^5.0.0"
+  }
+}

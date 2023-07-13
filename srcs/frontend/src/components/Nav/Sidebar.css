@@ -1,0 +1,25 @@
+.d-flex.flex-column.p-2 {
+	background-color: rgb(88, 110, 124); 
+	position: fixed;     
+	height: 100%;
+	width: 75px;     
+	z-index: 1;     
+	top: 0em;    
+	overflow-x: hidden;
+}
+
+.d-flex.mb-5{
+	padding-top: 110px;
+	padding-left: 15px;
+}
+
+.bi{
+	color: rgb(178,225,255);
+}
+.bi:hover { 
+	color: white; 
+}
+
+.nav-link.logout{
+	padding-top: 120px;
+}

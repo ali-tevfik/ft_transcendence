@@ -1,0 +1,36 @@
+.LoginPageContent{
+	background-color: rgb(88, 110, 124);
+    height: 100vh;
+    width: 100%;
+	z-index: 99;
+	display: flex;
+  	flex-direction: column;
+	justify-content: center; 
+  	align-items: center;
+	text-align: center;
+}
+
+.LoginIntro{
+    background-color: rgb(88, 110, 124);
+	height: 20px;
+	padding-bottom: 120px;
+  }
+
+.h1 {
+	font-weight: bolder;
+	z-index: 99;
+}
+
+  .ftLogo{
+	height: 40px;
+	margin-right: 20px;
+  }
+
+  button {
+	background-color: blanchedalmond;
+	padding: 15px;
+	font-size: medium;
+	font-weight: bold;
+	width: 300px;
+	z-index: 99;
+}
