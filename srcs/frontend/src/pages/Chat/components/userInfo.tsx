@@ -17,8 +17,8 @@ type Props = {
 export const UserInfo = ({ selectedMember, setSelectedMember }: Props) => {
     const { socket } = useSocket();
     const { user } = useUser();
-	const { dmRooms, setDmRooms, createDmRoom, members } = useChat();
-    const { room: RoomUser, setRoom } = useSocket();
+	const { dmRooms, setDmRooms, createDmRoom, members, room: RoomUser, setRoom } = useChat();
+    // const { room: RoomUser, setRoom } = useSocket();
     const room = RoomUser as DmRoomUser;
 
 	const openConversation = async(userName: string) => { // clicking on your onw name??

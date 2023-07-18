@@ -5,8 +5,8 @@ import { Member, UserRole, useChat } from "../../../contexts/ChatContext";
 import { useSocket } from "../../../contexts/SocketContext";
 
 export const AddAdminButton: React.FC<{ member: Member }> = ({ member }) => {
-  const { socket, room } = useSocket();
-  const { updateRoomUser } = useChat();
+  const { socket } = useSocket();
+  const { room, updateRoomUser } = useChat();
 
   async function handleClick(e: React.MouseEvent, member: Member) {
     e.stopPropagation();

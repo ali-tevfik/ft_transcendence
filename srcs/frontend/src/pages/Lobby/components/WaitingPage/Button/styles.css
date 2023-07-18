@@ -1,0 +1,9 @@
+.button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.button.with-icon {
+  font-size: 0;
+}

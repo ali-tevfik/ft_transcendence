@@ -19,10 +19,9 @@ type Props = {
 
 export const RoomInfo = ({ setSelectedMember }: Props) => {
 	const [popupVisibility, setPopupVisibility] = useState<boolean>(false);
-	const { socket } = useSocket();
 	const { user } = useUser();
-	const { dmRooms, setDmRooms, createDmRoom, members } = useChat();
-	const { room: RoomUser, setRoom } = useSocket();
+	const { members, room: RoomUser } = useChat();
+	// const { room: RoomUser } = useSocket();
 	const room = RoomUser as ChatRoomUser;
 	
 	const handleMemberClick = (member: Member) => {

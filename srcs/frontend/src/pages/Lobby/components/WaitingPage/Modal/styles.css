@@ -1,0 +1,48 @@
+.modal-overlay {
+	opacity: 0;
+	z-index: -1;
+	transition-duration: 0.2s;
+	transition-property: z-index, opacity;
+	background-color: rgba(0, 0, 0, 0.7);
+  
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+  }
+  
+  .modal-overlay.open {
+	opacity: 1;
+	z-index: 1;
+  }
+  
+  .modal-content {
+	width: clamp(700px, 60%, 90%);
+	background-color: var(--foreground-color);
+	border-radius: 10px;
+	padding: 32px 32px 56px;
+  
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+  }
+  
+  .modal-content .close-button {
+	right: 40px !important;
+  }
+  
+  .modal-content .close-button svg {
+	fill: var(--background-color);
+  }
+  
+  .modal-content * {
+	color: var(--background-color);
+  }
+  

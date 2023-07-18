@@ -6,8 +6,8 @@ import { useChat } from "../../../contexts/ChatContext/provider";
 
 export const DirectMessages = () => {
 	const [popupVisibility, setPopupVisibility] = useState<boolean>(false);
-    const { setRoom } = useSocket();
-    const { dmRooms } = useChat();
+    // const { setRoom } = useSocket();
+    const { setRoom, dmRooms } = useChat();
     
     return (
         <>
@@ -19,7 +19,11 @@ export const DirectMessages = () => {
             </h3>
             <ClickableList
                 items={dmRooms}
-                renderItem={room => <p className="roomListBtn">{room.contact}</p>}
+                renderItem={room => 
+                    <p className="roomListBtn">
+                        {room.contact}
+						{room.unreadMessages > 0 && ` ${room.unreadMessages}`}
+                    </p>}
                 onClickItem={room => setRoom(room)}
                 />
             {popupVisibility && (

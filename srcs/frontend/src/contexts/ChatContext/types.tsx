@@ -1,5 +1,7 @@
 import { User } from "../UserContext";
 
+export const GENERAL_CHAT = 'Transcendence'
+
 export enum RoomType {
 	PUBLIC = 'public',
 	PRIVATE = 'private',

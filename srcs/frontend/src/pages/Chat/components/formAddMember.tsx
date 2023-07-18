@@ -14,8 +14,9 @@ export const FormAddMember = ({ setPopupVisibility }: addContactProps) => {
 	const [unknowMembers, setUnknownMembers] = useState<User[]>([]);
 	const { allUsers, members, addRoomUser } = useChat();
 	const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
-	const { room, socket } = useSocket();
+	const { socket } = useSocket();
 	const { user } = useUser();
+	const { room } = useChat();
 	
 	useEffect(() => {
 		const filteredUsers = allUsers

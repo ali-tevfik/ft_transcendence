@@ -17,9 +17,9 @@ export type GameOptions = {
   gameStartTimer?: number
 }
 
-export type GameMode = 'solo' | 'multiplayer' | 'random' | 'endless'
+export type GameMode = 'solo' | 'multiplayer' | 'endless'
 
-export const gameModes: GameMode[] = ['solo', 'multiplayer', 'random', 'endless']
+export const gameModes: GameMode[] = ['solo', 'multiplayer', 'endless']
 
 export type Score = [number, number]
 

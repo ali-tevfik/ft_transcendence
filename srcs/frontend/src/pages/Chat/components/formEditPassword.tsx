@@ -7,8 +7,8 @@ export const FormEditPassword = () => {
   const [visibility, setVisibility] = useState<Boolean>(false);
   const [newPassword, setNewPassword] = useState<string>('');
   const [repeatPassword, setRepeatPassword] = useState<string>('');
-  const { room } = useSocket();
-  const { updateRoom } = useChat();
+  // const { room } = useSocket();
+  const { room, updateRoom } = useChat();
 
   const handleRemovePassword = () => {
     updateRoom({

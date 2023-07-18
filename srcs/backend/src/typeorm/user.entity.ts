@@ -2,6 +2,8 @@ import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany
 import { RoomEntity } from "./room.entity";
 import { MessageEntity } from "./message.entity";
 import { RoomUserEntity } from "./roomUser.entity";
+import { GameEntity } from "./game.entity";
+
 
 export const ADMIN = 'admin';
 
@@ -29,6 +31,12 @@ export class UserEntity {
 	@Column({})
 	isLogged: boolean = false;
 
+	@Column({nullable : true})
+	TwoFactorAuth:boolean = false
+
+	@Column({nullable: true})
+	twoFactorAuthSecret:string
+
 	@OneToMany(() => MessageEntity, message => message.user)
 	messages: MessageEntity[];
 
@@ -44,5 +52,11 @@ export class UserEntity {
 	
 	@ManyToMany(() => UserEntity, user => user.blocking)
 	blockedBy: UserEntity[];
+
+	//=========================================idil==================//
+
+	@JoinTable()
+    @OneToMany(() => GameEntity, game => game.player)
+    games: GameEntity[];
 
 }

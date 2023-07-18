@@ -7,9 +7,12 @@ import { RoomEntity } from "src/typeorm/room.entity";
 import { MessageEntity } from "src/typeorm/message.entity";
 import { UserService } from "src/user/user.service";
 import { RoomUserEntity } from "src/typeorm/roomUser.entity";
+import { GatewayService } from './gateway.service';
+import { GameEntity } from '../typeorm/game.entity';
+import { GameService } from '../game/game.service';
 
 @Module({
-	imports: [TypeOrmModule.forFeature([UserEntity, RoomEntity, RoomUserEntity, MessageEntity])],
-	providers: [MyGateway, ChatService, UserService]
+	imports: [TypeOrmModule.forFeature([UserEntity, RoomEntity, RoomUserEntity, MessageEntity, GameEntity])],
+	providers: [MyGateway, ChatService, UserService, GatewayService, GameService]
 })
 export class GatewayModule{}

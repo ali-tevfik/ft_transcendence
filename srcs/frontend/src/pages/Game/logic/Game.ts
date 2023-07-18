@@ -52,10 +52,10 @@ export class Game {
         this.controlledPaddles = [this.paddle1, this.paddle2]
         this.computerPaddles = []
         break
-      case 'random':
-        this.controlledPaddles = [this.paddle1, this.paddle2]
-        this.computerPaddles = []
-        break
+      // case 'random':
+      //   this.controlledPaddles = [this.paddle1, this.paddle2]
+      //   this.computerPaddles = []
+      //   break
       default:
         this.controlledPaddles = [this.paddle1]
         this.computerPaddles = [this.paddle2]

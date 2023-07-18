@@ -3,6 +3,7 @@ import { Ball, Paddle, Score, Timer, Net } from './components'
 import { useGame } from '../../contexts'
 import { GameMode } from './logic/types'
 
+
 type GameProps = {
   gameMode?: GameMode
 }
@@ -12,7 +13,7 @@ export function Game({ gameMode = 'endless' }: GameProps) {
   const playerPaddleRef = useRef<HTMLDivElement>(null)
   const computerPaddleRef = useRef<HTMLDivElement>(null)
   const { setUp, start, gameState } = useGame()
-
+  
   useEffect(() => {
     if (
       ballRef.current &&

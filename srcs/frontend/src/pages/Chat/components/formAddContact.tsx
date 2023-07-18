@@ -12,8 +12,8 @@ type addContactProps = {
 
 export const FormAddContact = ({ setPopupVisibility }: addContactProps) => {
 	const [unknowContacts, setUnknownContacts] = useState<User[]>([]);
-	const { allUsers, dmRooms, createDmRoom } = useChat();
-	const { socket, setRoom } = useSocket();
+	const { setRoom, allUsers, dmRooms, createDmRoom } = useChat();
+	const { socket } = useSocket();
 	const { user } = useUser();
 	
 	useEffect(() => {

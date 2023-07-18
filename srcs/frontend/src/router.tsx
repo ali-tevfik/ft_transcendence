@@ -11,6 +11,7 @@ import Navbar from './components/Nav/navBar';
 import SideBar from './components/Nav/sideBar';
 import React, { useContext } from 'react';
 import './components/Nav/main.css';
+import { Random } from './pages/Game/components/Online/index'
 
 
 export function Router() {
@@ -43,6 +44,8 @@ export function Router() {
                     <Route path='/create2fa' element={  <Create2fa/>} />
                     <Route path='/verify2fa' element={  <Verify2fa/>} />
                     {/* <Route path='/chat' element={<Chat />} /> */}
+
+                    <Route path='/random' element={<Random />} />
                     {gameModes.map((mode: GameMode) => (
                       <Route
                         key={mode}

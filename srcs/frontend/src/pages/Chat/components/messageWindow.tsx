@@ -6,9 +6,9 @@ import { useUser } from "../../../contexts";
 
 export const MessageWindow = () => {
   const lastMessageRef = useRef<HTMLDivElement | null>(null);
-  const { socket, room } = useSocket();
+  const { socket } = useSocket();
   const { user } = useUser();
-  const { blocked, messages, setMessages, handleUnreadMessage } = useChat();
+  const { room, blocked, messages, setMessages, handleUnreadMessage } = useChat();
 
   useEffect(() => {
     const onMessage = (newMessage: Message) => {

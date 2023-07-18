@@ -1,12 +1,13 @@
 import { useState } from "react";
 // import { useUser } from "../../../contexts/UserProvider";
 import { useSocket } from "../../../contexts/SocketContext/provider";
-import { useUser } from "../../../contexts";
+import { useChat, useUser } from "../../../contexts";
 
 export function MessageInput(){
   const [message, setMessage] = useState<string>('');
   const { user } = useUser()
-  const { socket, room } = useSocket();
+  const { socket } = useSocket();
+  const { room } = useChat();
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();

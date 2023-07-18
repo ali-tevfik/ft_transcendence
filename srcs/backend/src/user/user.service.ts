@@ -263,4 +263,16 @@ export class UserService {
 	async deleteUser(id: number) {
 		return this.userRepository.delete(id);
 	}
+
+	// //////
+	async findUserByUserId(userId: number): Promise<UserEntity> {
+		const user = await this.userRepository.findOne({ 
+			where: { id: userId } 
+		});
+	
+		if(!user)
+			throw new Error(`User with ID ${userId} not found`);
+	
+		return user;
+	}
 }
