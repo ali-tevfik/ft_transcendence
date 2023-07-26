@@ -52,7 +52,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: var(--foreground-color);
+    background: snow;
     animation: loading-bounce 0.5s ease-in-out infinite alternate;
   }
   

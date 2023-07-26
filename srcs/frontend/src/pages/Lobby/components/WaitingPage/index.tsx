@@ -27,7 +27,6 @@ export function WaitingPage1() {
     socket.on("matchFound", onMatched);
     return () => {
       socket.off('matchFound', onMatched);
-      // socket.disconnect();
     };
   }, [socket, navigate]);
 
@@ -40,7 +39,6 @@ export function WaitingPage1() {
     socket.on("gameUnqueued", onCancelMatching);
     return () => {
       socket.off('gameUnqueued', onCancelMatching);
-      // socket.disconnect();
     };
   }, [socket, navigate]);
 
@@ -48,7 +46,6 @@ export function WaitingPage1() {
     socket.emit("matchMaking", {type: 'CLASSIC'});
     return () => {
       socket.off('matchMaking');
-      // socket.disconnect();
     };
   }, []);
 

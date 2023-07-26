@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { UserProvider, GameProvider, UserContext, ChatProvider } from './contexts';
+import { UserProvider, GameProvider, UserContext, ChatProvider, SettingsProvider } from './contexts';
 import { GameMode, gameModes } from './pages/Game/logic/types'
 import { Game, Lobby, Home, Chat, Login } from './pages'
 import { SocketProvider } from './contexts/SocketContext/provider';
@@ -32,6 +32,7 @@ export function Router() {
             <SideBar />
           </div>
           <div className='MainContent'>
+                <SettingsProvider>
                 <SocketProvider>
                   <Routes>
                     <Route path='/home' element={<Home />} />
@@ -68,6 +69,7 @@ export function Router() {
                     ))}
                   </Routes>
                 </SocketProvider>
+                </SettingsProvider>
           </div>
         </div>
       </section>

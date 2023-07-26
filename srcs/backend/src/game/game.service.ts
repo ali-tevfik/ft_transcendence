@@ -47,6 +47,7 @@ export class GameService {
                 let score = game.isCustom ? 150 : 100;
                 await this.userRepository.increment({ id: winner }, 'score', score);
                 await this.userService.changeRank(winner);
+                await this.userService.changeRank(loser);
 
                 await this.userRepository.update(loser, { inGame: false });
                 await this.userRepository.increment({ id: loser }, 'totalLoose', 1);
@@ -62,7 +63,7 @@ export class GameService {
                 if (!loserObj) loserUsername = "unKnown";
                 else loserUsername = loserObj.userName;
                 
-                game.server.to(`game${game.id}`).emit('gameEnd', `user ${winnerUsername} won the game ${winnerScore} - ${loserScore}`);
+                game.server.to(`game${game.id}`).emit('gameEnd', `${winnerUsername} won the game ${winnerScore} - ${loserScore}`);
                 
                 // game.server.to(`game${game.id}`).emit('gameEnd', { winnerUsername, loserUsername, winnerScore, loserScore });
                 // this.socketService.endGame(game, game.id);

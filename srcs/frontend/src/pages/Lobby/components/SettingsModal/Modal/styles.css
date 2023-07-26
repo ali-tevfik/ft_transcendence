@@ -20,7 +20,7 @@
   
   .modal-overlay.open {
 	opacity: 1;
-	z-index: 1;
+	z-index: 100;
   }
   
   .modal-content {

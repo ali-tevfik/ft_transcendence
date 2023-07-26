@@ -72,7 +72,7 @@ export class UserEntity {
     totalLoose: number;
 
 	@Column({
-        default: 0
+        default: 1000
     })
     rank: number;
 

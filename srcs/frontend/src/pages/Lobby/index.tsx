@@ -10,8 +10,8 @@ import { PlusIcon } from "./assets/PlusIcon"
 import { CloseIcon } from "./assets/CloseIcon"
 
 export function Lobby() {
-  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
-  const [settings, toggle] = React.useState(true);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState<boolean>(false)
+  const [settings, toggle] = useState<boolean>(true);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('');
 
@@ -34,6 +34,7 @@ export function Lobby() {
       {settings ? (
         <Components.OfflineContainer settings={settings}>
           <Components.Card>
+          <Settings isOpen={isSettingsModalOpen} setIsOpen={setIsSettingsModalOpen} />
             <Components.TopCard>
               <img src={SoloImg} alt="Solo" className='img1'/>
               <Link to='/solo' className='games1'>SOLO</Link>
@@ -42,7 +43,6 @@ export function Lobby() {
               <img src={MultiImg} alt="Multi" className='img2'/>
               <Link to='/multiplayer' className='games2'>MULTIPLAYER</Link>
             </Components.BottomCard>
-          <Settings isOpen={isSettingsModalOpen} setIsOpen={setIsSettingsModalOpen} />
           </Components.Card>
         </Components.OfflineContainer>
       ) : (

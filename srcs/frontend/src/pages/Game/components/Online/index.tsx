@@ -55,9 +55,9 @@ export function Random() {
       setMessage(data);
       console.log(data);
       setTimer(false);
-      setGameState(null);
+      // setGameState(null);
       setEnd(true);
-      navigate('/lobby');
+      // navigate('/lobby');
     };
     socket.on('gameEnd', gameEndHandler);
     return () => {
@@ -86,6 +86,11 @@ export function Random() {
       window.removeEventListener('keyup', handleKeyUp);
     };
   }, [socket]);
+
+  const handleClose = () => {
+    setEnd(false);
+    navigate('/lobby');
+  };
   
 
   return (
@@ -96,9 +101,9 @@ export function Random() {
             <Timer />
           </>
         )}
-        <div className='game-container'>
-          {gameState && (
+          {(gameState && !end) && (
             <>
+            <div className='game-container'>
               <div className='score'>
                 {`${gameState.p1Score} - ${gameState.p2Score}`}
               </div>
@@ -151,16 +156,21 @@ export function Random() {
                 }} />
                 </div>
               )}
+            </div>
             </>
           )}
-        </div>
 
 
-        {/* {end && (
+        {end && (
           <>
-            {message}
+            <div className='result'>
+              {message}
+              <button className='backlobby' onClick={handleClose}>
+                Turn back to Lobby
+              </button>
+            </div>
           </>
-        )} */}
+        )}
       </div>
     </>
   );

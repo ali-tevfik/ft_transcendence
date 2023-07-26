@@ -97,8 +97,8 @@ export const Card = styled.form`
   }
 
   .img1 {
-    width: 130px;
-    height: 100px;
+    width: 100px;
+    height: 94px;
   }
 
   .img2 {
