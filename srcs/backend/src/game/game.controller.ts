@@ -6,8 +6,8 @@ import { GameEntity } from 'src/typeorm/game.entity';
 export class GameController {
     constructor( private gameService: GameService ) {}
 
-    @Get('/:playerId')
-    async getGamesByPlayerId(@Param('playerId') playerId: string): Promise<GameEntity[]> {
-        return this.gameService.getGamesByPlayerId(Number(playerId));
+    @Get('/:intraId')
+    async getGamesByPlayerId(@Param('intraId') intraId: string): Promise<GameEntity[]> {
+        return this.gameService.getGamesByPlayerId(intraId);
     }
 }

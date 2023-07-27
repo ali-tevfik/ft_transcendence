@@ -9,6 +9,7 @@ import axios from 'axios';
 
 
 type User = {
+  id: number;
   avatar: string;
   userName: string;
   intraId: string;
@@ -36,6 +37,7 @@ export default function Profile() {
         response.data.forEach((user: any) => {
           if(user.intraName === id) {
             let profileUser: User = {
+			  id : user.id,
               avatar: user.avatar,
               userName: user.userName,
               intraId: user.intraId,

@@ -1,25 +1,18 @@
-.nav.flex-column{
-}
 
 .d-flex.flex-column {
 	background-color: rgb(88, 110, 124); 
 	position: fixed; 
 	height: 100%;
 	width: 5%;
-	/* z-index: 1;      */
 	top: 0em;    
 	overflow-x: hidden;
 	align-items: center;
-	/* justify-content:center; */
-
-
+	/* z-index: 1;      */
 }
 
 .d-flex.mb-5{
 	padding-top: 110px;
 	padding-left: 15px;
-	/* background-color: aquamarine; */
-	/* height: 20%; */
 }
 
 .bi-house-door, .bi-controller,.bi-wechat, .bi-gear.sidebar-settings, .bi-door-open, .bi-person{

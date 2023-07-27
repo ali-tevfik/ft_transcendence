@@ -22,14 +22,16 @@ const MatchHistory: React.FC<Props> = ({ id }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 		  try {
-			const response = await axios.get(`http://localhost:3001/friends/allUser/${id}`,{withCredentials:true});
-			const { friends} = response.data;
-			const usersData = [...friends.map((friend: User) => ({ ...friend }))]
-			setUsers(usersData);
+			const response = await axios.get(`http://localhost:3001/game/${id}`,{withCredentials:true});
+			console.log("BURASI MATCH  " + JSON.stringify(response.data))
+			// const { friends} = response.data;
+			// const usersData = [...friends.map((friend: User) => ({ ...friend }))]
+			// setUsers(usersData);
 			
 		  } catch (error) {
-			localStorage.clear()
-			window.location.href= '/login'
+			console.error(error)
+			// localStorage.clear()
+			// window.location.href= '/login'
 		  }
 		};
 		fetchData();

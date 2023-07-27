@@ -63,7 +63,7 @@ return (
   <Styles>
     <Navbar>
 	    <Navbar.Brand href="/home">
-        <img src={Intra} alt="Ft-icon" className='icon'/>
+        <img src={Intra} alt="Ft-icon" className='Pongicon'/>
         <text className='brand'>PONG</text>
       </Navbar.Brand>
       {/* <Form className="form-center">

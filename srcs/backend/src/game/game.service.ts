@@ -301,13 +301,17 @@ export class GameService {
         }
     }
 
-    async getGamesByPlayerId(playerId: number): Promise<GameEntity[]> {
-        return this.gameRepository.find({
+    async getGamesByPlayerId(intraId: string): Promise<GameEntity[]> {
+        const a = this.gameRepository.find({
           where: {
             player: {
-                id: playerId
+                id: id
             }
           }
         });
+		console.log("dd ",JSON.stringify(a.game))
+	return a
+
     }
+
 }
