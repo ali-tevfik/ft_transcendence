@@ -13,7 +13,6 @@ export function Home() {
   const { user , setUser} = useContext(UserContext);
 
   useEffect(() => {
-    //TODO api yaz win icin!! ne lazim cicege sor! win lose score ingame rank
     const fetchData = async () => {
       try {
       const response = await axios.get(`http://localhost:3001/user/${user?.intraId}`)
@@ -38,12 +37,9 @@ export function Home() {
           <h4 className="UserName">{user.userName}</h4>
           <div className="ProfileStatusInfo">
             <i className="bi bi-circle-fill fs-5"  id={user.isLogged ? "indicatorOnline" : "indicatorOffline"}></i>
-            {/* {!isGaming && user.isLogged && ( */}
+            {user.isLogged && (
               <h4 className="UserStatus">Online</h4> 
-            {/* )} */}
-            {/* {isGaming && user.isLogged && (
-              <h4 className="UserStatus">In Game</h4> 
-            )} */}
+             )} 
             {!user.isLogged && (
               <h4 className="UserStatus">Offline</h4> 
             )}

@@ -18,6 +18,7 @@ type User = {
   rank: number;
   totalLoose: number;
   totalWin: number;
+  inGame:boolean;
 };
 
 
@@ -45,6 +46,7 @@ export default function Profile() {
               rank: user.rank,
               totalLoose: user.totalLoose,
               totalWin: user.totalWin,
+              inGame: user.inGame,
             }
             setUser(profileUser)
             setLoading(false);
@@ -73,12 +75,12 @@ export default function Profile() {
             <h4 className="UserName">{user!.userName}</h4>
             <div className="ProfileStatusInfo">
               <i className="bi bi-circle-fill fs-5"  id={user!.isLogged ? "indicatorOnline" : "indicatorOffline"}></i>
-              {/* {!isGaming && user.isLogged && ( */}
+              {!user?.inGame && user?.isLogged && (
                 <h4 className="UserStatus">Online</h4> 
-              {/* )} */}
-              {/* {isGaming && user.isLogged && (
+              )}
+              {user?.inGame && user.isLogged && (
                 <h4 className="UserStatus">In Game</h4> 
-              )} */}
+              )}
               {!user!.isLogged && (
                 <h4 className="UserStatus">Offline</h4> 
               )}

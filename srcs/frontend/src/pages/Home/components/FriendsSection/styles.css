@@ -64,7 +64,42 @@
 .FriendsOnlineDisplay {
 	grid-column-start: 6;
 	grid-column-end: 7;
+
+	position: relative;
+	cursor: default;
 }
+
+.indicatorGame{
+	position: absolute;
+	width: 60%;
+	margin-left: -40px;
+	text-align: center;
+	top: -25px;
+	left: 50%;
+	transform: translateX(-50%);
+	/* background-color: rgb(88, 110, 124);  */
+	color: rgb(88, 110, 124);
+	border-radius: 4px;
+	display: none;
+}
+
+.indicatorNotGame{
+	position: absolute;
+	width: 60%;
+	margin-left: -40px;
+	text-align: center;
+	top: -25px;
+	left: 50%;
+	transform: translateX(-50%);
+	/* background-color: rgb(88, 110, 124);  */
+	color: rgb(88, 110, 124);
+	border-radius: 4px;
+	display: none;
+}
+
+.FriendsOnlineDisplay:hover .indicatorGame{
+	display: block;
+ }
 
 .NoUsersFound{
 	font-size: 20px;
