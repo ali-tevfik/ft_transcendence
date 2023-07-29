@@ -131,6 +131,18 @@ export function Random() {
     };
   }, );
 
+  useEffect(() => {
+    const handler = (event: PopStateEvent) => {
+      event.preventDefault();
+      // event.returnValue = '';
+      socket.emit("gameExited");
+    };
+    window.addEventListener('popstate', handler);  
+    return () => {
+      window.removeEventListener('popstate', handler);
+    };
+  }, );
+
 
   return (
     <>
